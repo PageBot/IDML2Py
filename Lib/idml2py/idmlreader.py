@@ -10,7 +10,7 @@
 #
 #     idmlreader.py
 #
-#     Takes an Adobe IDML file and answers a Python instance.
+#     Takes an Adobe IDML file and answers a Python IdmlRoot instance.
 #
 import zipfile
 from lxml import etree
