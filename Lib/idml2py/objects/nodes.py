@@ -26,6 +26,7 @@ class IdmlNode:
             text=None, tail=None, attributes=None, **kwargs):
         if name is None:
             name = self.__class__.__name__
+        #print('===', name, fileName)
         self.fileName = fileName
         self.name = name
         self.nsmap = nsmap
@@ -95,13 +96,18 @@ class IdmlNode:
 
 class Page(IdmlNode):
     def __init__(self, **kwargs):
-        #print(fileName, name)
         IdmlNode.__init__(self,  **kwargs)
+
+class DesignMap(IdmlNode):
+    def __init__(self, **kwargs):
+        IdmlNode.__init__(self, **kwargs)
+        #print('----------', self.attrs)
 
 NODE_CLASSES = {
     # Expanding set of IdmlNode classes, that know more about their
     # content so the can generate, manipulate and validate. 
     'IdmlNode': IdmlNode,
     'Page': Page,
+    'Document': DesignMap,
 }
 
